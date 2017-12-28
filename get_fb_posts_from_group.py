@@ -17,4 +17,10 @@ def constructFBPageFieldUrl(base_url):
 
     return url
 
+def scrapeFBPageFeedPosts(group_id, access_token, since_date, until_date):
+    pass
+
+def processFBPageFeedPosts(post):
+    # Processes a single post. Helper for scrapeFBPageFeedPosts
+    pass
     
