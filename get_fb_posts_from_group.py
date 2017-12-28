@@ -9,6 +9,20 @@ try:
 except ImportError:
     from urllib2 import urlopen, Request
 
+def request_until_succeed(url):
+    req = Request(url)
+    success = False
+    while not success:
+        try:
+            res = urlopen(req)
+            if res.getcode() == 200:
+                success = True
+        except Exception as e:
+            print(e)
+            time.sleep(3)
+            print("ERROR FOR URL {}: {}".format(url, datetime.datetime.now))
+            print("Retrying\n")
+
 
 def constructFBPageFieldUrl(base_url):
     fields = "&fields=link,updated_time,type,picture,full_picture," + \
