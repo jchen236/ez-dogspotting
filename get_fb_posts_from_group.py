@@ -56,7 +56,7 @@ def scrapeFBPageFeedPosts(group_id, access_token):
     paging = ''
     base = "https://graph.facebook.com/v2.11"
     node = "/{}/feed".format(group_id)
-    params = "/?limit={}&access_token={}".format(100, access_token)
+    params = "/?limit={}&access_token={}".format(10, access_token)
     since = "&since={}".format(since_date) if since_date \
         is not '' else ''
     until = "&until={}".format(until_date) if until_date \
@@ -69,12 +69,22 @@ def scrapeFBPageFeedPosts(group_id, access_token):
         base_url = base + node + params + since + until + paging
         url = constructFBPageFieldUrl(base_url)
         posts = json.loads(request_until_succeed(url))
-        print(posts)
+        for post in posts['data']:
+            processFBPageFeedPosts(post)
+        # If there are more pages left
+        if 'paging' in posts:
+            next_url = posts['paging']['next']
+            until = re.search('until=([0-9]*?)(&|$)', next_url).group(1)
+            paging = re.search('__paging_token=(.*?)(&|$)', next_url).group(1)
+        else:
+            has_next_page = False
         time.sleep(10)
 
 def processFBPageFeedPosts(post):
     # Processes a single post. Helper for scrapeFBPageFeedPosts
     print(post)
+    print("="*30)
+
 
 if __name__ == '__main__':
     scrapeFBPageFeedPosts(group_id, access_token)
