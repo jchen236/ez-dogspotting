@@ -84,6 +84,17 @@ def processFBPageFeedPosts(post):
     # Processes a single post. Helper for scrapeFBPageFeedPosts
     print(post)
     print("="*30)
+    post_id = post['id']
+    post_type = post['type']
+    post_message = '' if 'message' not in post else post['message']
+    post_link = '' if 'link' not in post else post['link']
+    post_picture = '' if 'picture' not in post else post['picture']
+    post_full_picture = '' if 'full_picture' not in post else post['full_picture']
+    num_reactions = 0 if 'reactions' not in post else \
+        post['reactions']['summary']['total_count']
+    num_comments = 0 if 'comments' not in post else \
+        post['comments']['summary']['total_count']
+    num_shares = 0 if 'shares' not in post else post['shares']['count']
 
 
 if __name__ == '__main__':
