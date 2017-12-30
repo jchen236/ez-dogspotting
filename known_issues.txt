@@ -1,0 +1,5 @@
+1. If you are on OSX and are getting an error like <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:748)>,
+it may be because you are using Python 3.6 which does not rely on MacOS's openSSL. You can either run these two commands to install
+the certificates which come with the Python installation <cd /Applications/Python\ 3.6/> and <./Install\ Certificates.command>,
+or install the certifi package yourself at https://pypi.python.org/pypi/certifi
+
