@@ -54,7 +54,7 @@ def scrapeFBPageFeedPosts(group_id, access_token):
 
     # Contains paging token that tells us where we left off during cursor pagination
     paging = ''
-    base = "https://graph.facebook.com/v2.9"
+    base = "https://graph.facebook.com/v2.11"
     node = "/{}/feed".format(group_id)
     params = "/?limit={}&access_token={}".format(100, access_token)
     since = "&since={}".format(since_date) if since_date \
