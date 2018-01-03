@@ -12,24 +12,14 @@ class App extends Component {
     super();
     this.state = {
     }
-    this.base_url = 'https://graph.facebook.com/v2.11';
-    this.paging = ''
-    this.node = format('/{}/feed', GROUP_ID)
-    this.params = format('/?limit={}&access_token={}', 10, ACCESS_TOKEN)
     // Needs more?
   }
 
 
   componentDidMount() {
-
-    axios.get('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC')
-      .then(function(response) {
-        console.log(response.data);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-    console.log(format('Hello, {}', 'World'));
+    console.log("Component Did Mount");
+    scrapeFBPageFeedPosts(GROUP_ID, ACCESS_TOKEN);
+    
   }
 
   constructFBPageFieldUrl = (baseUrl) => {
@@ -37,6 +27,17 @@ class App extends Component {
     message,shares,reactions.limit(0).summary(true)';
     const url = baseUrl + fields
     return url
+  }
+
+  requestDataFromUrl = (url) => {
+    axios.get(url)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+    console.log("requestDataFromUrl finished calling");
   }
 
   scrapeFBPageFeedPosts = (groupID, accessToken) => {
@@ -60,6 +61,8 @@ class App extends Component {
     baseUrl = base + node + params + since + until + paging;
 
     url = constructFBPageFieldUrl(baseUrl);
+
+    requestDataFromUrl()
 
   }
 
