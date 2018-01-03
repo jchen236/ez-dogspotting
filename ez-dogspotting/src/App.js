@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
-import Post from './Components/Post'
+import Posts from './Components/Posts'
 import './App.css';
 import * as settings from './settings'
 import { GROUP_ID, ACCESS_TOKEN } from './settings';
@@ -18,7 +18,7 @@ class App extends Component {
 
   componentDidMount() {
     console.log("Component Did Mount");
-    scrapeFBPageFeedPosts(GROUP_ID, ACCESS_TOKEN);
+    this.scrapeFBPageFeedPosts(GROUP_ID, ACCESS_TOKEN);
     
   }
 
@@ -41,28 +41,28 @@ class App extends Component {
   }
 
   scrapeFBPageFeedPosts = (groupID, accessToken) => {
-    hasNextPage = true;
-    numPostsScraped = 0;
-    base = "https://graph.facebook.com/v2.11";
+    let hasNextPage = true;
+    let numPostsScraped = 0;
+    const base = "https://graph.facebook.com/v2.11";
 
-    since_date = '';
-    until_date = '';
+    let since_date = '';
+    let until_date = '';
 
-    paging = '';
-    node = format("/{}/feed", groupID);
-    params = format("/?limit={}&access_token={}", 10, accessToken);
-    since = since_date !== '' ? format("&since={}",since_date) : '';
-    until = until_date !== '' ? format("&until={}", until_date) : '';
+    let paging = '';
+    const node = format("/{}/feed", groupID);
+    const params = format("/?limit={}&access_token={}", 10, accessToken);
+    let since = since_date !== '' ? format("&since={}",since_date) : '';
+    let until = until_date !== '' ? format("&until={}", until_date) : '';
 
     console.log("Begin Scraping Group");
 
     until = until == '' ? '' : format("&until={}", until);
     paging = paging == '' ? '' : format("&__paging_token={}", paging);
-    baseUrl = base + node + params + since + until + paging;
+    let baseUrl = base + node + params + since + until + paging;
 
-    url = constructFBPageFieldUrl(baseUrl);
-
-    requestDataFromUrl()
+    let url = this.constructFBPageFieldUrl(baseUrl);
+    console.log(url)
+    this.requestDataFromUrl()
 
   }
 
@@ -78,7 +78,7 @@ class App extends Component {
     return (
       <div className="App">
         My App
-        <Post/>
+        <Posts/>
       </div>
     );
   }
