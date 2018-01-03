@@ -62,7 +62,7 @@ class App extends Component {
 
     let url = this.constructFBPageFieldUrl(baseUrl);
     console.log(url)
-    this.requestDataFromUrl()
+    this.requestDataFromUrl(url)
 
   }
 
