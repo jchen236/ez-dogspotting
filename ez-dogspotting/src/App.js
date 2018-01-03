@@ -40,6 +40,26 @@ class App extends Component {
   }
 
   scrapeFBPageFeedPosts = (groupID, accessToken) => {
+    hasNextPage = true;
+    numPostsScraped = 0;
+    base = "https://graph.facebook.com/v2.11";
+
+    since_date = '';
+    until_date = '';
+
+    paging = '';
+    node = format("/{}/feed", groupID);
+    params = format("/?limit={}&access_token={}", 10, accessToken);
+    since = since_date !== '' ? format("&since={}",since_date) : '';
+    until = until_date !== '' ? format("&until={}", until_date) : '';
+
+    console.log("Begin Scraping Group");
+
+    until = until == '' ? '' : format("&until={}", until);
+    paging = paging == '' ? '' : format("&__paging_token={}", paging);
+    baseUrl = base + node + params + since + until + paging;
+
+    url = constructFBPageFieldUrl(baseUrl);
 
   }
 
