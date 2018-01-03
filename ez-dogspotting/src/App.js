@@ -11,7 +11,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-    }
+      data: []
+    };
     // Needs more?
   }
 
@@ -31,10 +32,13 @@ class App extends Component {
 
   requestDataFromUrl = (url) => {
     axios.get(url)
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
+      .then((response) => {
+        console.log(response.data.data);
+        this.setState( {
+          data: response.data.data
+      }) 
+    })
+      .catch((error) => {
         console.log(error);
       });
     console.log("requestDataFromUrl finished calling");
@@ -78,7 +82,7 @@ class App extends Component {
     return (
       <div className="App">
         My App
-        <Posts/>
+        <Posts posts = {this.state.data}/>
       </div>
     );
   }

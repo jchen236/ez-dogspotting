@@ -6,7 +6,9 @@ class Posts extends Component {
   render() {
     let posts;
     if(this.props.posts) {
+      console.log("props received from app");
       posts = this.props.posts.map(post => {
+        console.log("1");
         console.log(post)
       })
     }
