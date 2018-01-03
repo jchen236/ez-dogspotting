@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import PostItem from './PostItem';
+const uuidv4 = require('uuid/v4');
 
 class Posts extends Component {
 
   render() {
-    let posts;
+    let postItems;
     if(this.props.posts) {
-      console.log("props received from app");
-      posts = this.props.posts.map(post => {
-        console.log("1");
-        console.log(post)
+      console.log("props received from app to Posts");
+      postItems = this.props.posts.map(post => {
+
+        return (
+          <PostItem key = {uuidv4()} postData = {post}/>
+        )
       })
     }
     return (
-      <h1>This is a post </h1>
+      <div className="Posts">
+      <h3> Post List </h3>
+        {postItems}
+      </div>
     ); 
   }
 }
