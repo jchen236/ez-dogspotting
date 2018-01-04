@@ -6,6 +6,7 @@ import './App.css';
 import * as settings from './settings'
 import { GROUP_ID, ACCESS_TOKEN } from './settings';
 import Header from './Components/HeaderComponents/Header';
+import Footer from './Components/FooterComponents/Footer';
 var format = require('string-format')
 class App extends Component {
 

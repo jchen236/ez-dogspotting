@@ -4,7 +4,17 @@ class Header extends Component {
     render() {
         return (
             <header>
-                Test Header
+                <div classsName = "logo">
+                LOGO
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href = "#">Group1</a></li>
+                        <li><a href = "#">Group2</a></li>
+                        <li><a href = "#">Group3</a></li>
+                    </ul>
+                </nav>
             </header>
         );
     }
