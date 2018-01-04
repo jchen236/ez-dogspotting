@@ -1,12 +1,22 @@
 @import "_config.scss";
 
 header {
-    display: block;
+    display: relative;
     width: 100%;
     background: $black;
     color: $white;
+    height: 90px;
 
     .logo {
+        position: absolute;
+        top: 50%; left: 15px;
+        @include translateY(-50%);
+    }
 
+    nav,
+    nav ul,
+    nav ul li {
+        margin: 0;
+        padding: 0;
     }
 }
