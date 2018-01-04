@@ -23,3 +23,8 @@ gulp.task('compile_scss', function() {
     .pipe(gulp.dest(SCSS_DEST));
 });
 
+gulp.task('watch_scss', function() {
+    gulp.watch(SCSS_SRC, ['compile_scss']);
+});
+
+gulp.task('default', ['watch_scss']);
