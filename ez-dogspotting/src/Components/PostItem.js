@@ -20,17 +20,20 @@ class PostItem extends Component {
       }
     
   render() {
+      let mediaLogic;
+      if (this.state.type == 'video') {
+        mediaLogic = 
+        <div class="fb-video" data-href={this.state.link} data-height= "400" data-width="300" data-show-text="false">
+        </div>;
+      } else if (this.state.type == 'photo') {
+          mediaLogic = 
+            <div class="fb-post" data-href={this.state.link} data-height="400" data-width = "300" data-show-text="false">
+            </div>
+      }
     return (
         <div>
-      {/* <li>
-        {this.state.link}
-      </li> */}
-
-      <div class="fb-video" data-href={this.state.link} data-height= "400" data-width="300" data-show-text="false">
-    <div class="fb-xfbml-parse-ignore">
-    </div>
-    </div>
-      </div>
+            {mediaLogic}
+        </div>
     ); 
   }
 }
