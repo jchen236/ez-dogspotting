@@ -5,6 +5,7 @@ import Posts from './Components/Posts'
 import './App.css';
 import * as settings from './settings'
 import { GROUP_ID, ACCESS_TOKEN } from './settings';
+import Header from './Components/HeaderComponents/Header';
 var format = require('string-format')
 class App extends Component {
 
@@ -81,6 +82,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+       <Header />
         My App
         {
           ((d, s, id) => {
