@@ -33,6 +33,7 @@ class PostItem extends Component {
     return (
         <div>
             {mediaLogic}
+            <img src = "https://scontent.xx.fbcdn.net/v/t15.0-10/s720x720/24554368_10154924218011879_7690847458473017344_n.jpg?oh=6fd04d90bbe02469deed7670cc98cc97&oe=5AF4B8E2"/>
         </div>
     ); 
   }
