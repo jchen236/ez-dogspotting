@@ -23,7 +23,7 @@ class PostItem extends Component {
       let mediaLogic;
       if (this.state.type == 'video') {
         mediaLogic = 
-        <div class="fb-video" data-href={this.state.link} data-height= "400" data-width="300" data-show-text="false">
+        <div class="fb-video" data-href={this.state.link} data-height= "400" data-width="350" data-show-text="false">
         </div>;
       } else if (this.state.type == 'photo') {
           mediaLogic = 
