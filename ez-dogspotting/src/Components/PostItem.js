@@ -28,14 +28,14 @@ class PostItem extends Component {
       let mediaContent;
       if (this.state.type == 'video') {
         mediaContent = 
-        <video src={this.state.source} height="484" width="860" controls>
+        <video src={this.state.source} controls>
 </video>
       } else if (this.state.type == 'photo') {
           mediaContent = 
-          <img src = {this.state.picture}/>
+          <img src = {this.state.full_picture}/>
       }
     return (
-        <div className = "postitem">
+        <div className = "content_holder">
             {mediaContent}
             {/* https://developers.facebook.com/docs/graph-api/reference/video */}
             

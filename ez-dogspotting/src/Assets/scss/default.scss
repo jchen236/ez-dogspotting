@@ -44,15 +44,21 @@ header {
     }
 }
 
-.postitem {
-    width: 400px;
-    height: 400px;
-    position: relative;
-    margin: 0 auto 0 auto;
+.content_holder {
+    width: 500px;
+    height: 500px;
+    margin: 10px auto 10px auto;
+    background-color: black;
+    display: block;
+    border-color: #f00;
+    border-width: 3px;
+
+    video, img {
+        height: 80%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    
+    }
 }
 
-video, img {
-    width: 100%;
-    height: 100%;
-
-}
