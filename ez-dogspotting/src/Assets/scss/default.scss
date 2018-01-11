@@ -55,6 +55,7 @@ header {
     line-height: 600px;
 
     video, img {
+        object-fit: cover;
         margin-left: auto;
         margin-right: auto;
         vertical-align: middle;
@@ -63,7 +64,9 @@ header {
         max-height: 90%;
         height: auto;
         width: auto;
-    
+    }
+    video {
+        height: 540px;
     }
 }
 
