@@ -45,19 +45,20 @@ header {
 }
 
 .content_holder {
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     margin: 10px auto 10px auto;
     background-color: black;
     display: block;
     border-color: #f00;
     border-width: 3px;
+    line-height: 600px;
 
     video, img {
         height: 80%;
-        display: block;
         margin-left: auto;
         margin-right: auto;
+        vertical-align: middle;
     
     }
 }
