@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   constructFBPageFieldUrl = (baseUrl) => {
-    const fields = '&fields=link,object_id,updated_time,type,picture,full_picture, \
+    const fields = '&fields=link,object_id,source,updated_time,type,picture,full_picture, \
     message,shares,reactions.limit(0).summary(true)';
     const url = baseUrl + fields
     return url
