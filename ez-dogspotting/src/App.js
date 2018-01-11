@@ -57,7 +57,7 @@ class App extends Component {
 
     let paging = '';
     const node = format("/{}/feed", groupID);
-    const params = format("/?limit={}&access_token={}", 3, accessToken);
+    const params = format("/?limit={}&access_token={}", 30, accessToken);
     let since = since_date !== '' ? format("&since={}",since_date) : '';
     let until = until_date !== '' ? format("&until={}", until_date) : '';
 
@@ -86,7 +86,7 @@ class App extends Component {
       <div className="App">
        <Header />
         My App
-        {
+        {/* {
           ((d, s, id) => {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
@@ -94,7 +94,7 @@ class App extends Component {
             js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11";
             fjs.parentNode.insertBefore(js, fjs);
           })(document, 'script', 'facebook-jssdk')
-        }
+        } */}
         <Posts posts = {this.state.data}/>
       </div>
     );

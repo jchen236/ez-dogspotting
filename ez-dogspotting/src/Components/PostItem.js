@@ -14,29 +14,31 @@ class PostItem extends Component {
             message: props.postData.message,
             reactions: props.postData.reactions,
             shares: props.postData.shares,
+            source: props.postData.source,
             updated_time: props.postData.updated_time      
         };
         // Needs more?
       }
+
+    getIDFromVideoLink = (link) => {
+        
+    }
     
   render() {
-      let mediaLogic;
+      let mediaContent;
       if (this.state.type == 'video') {
-        mediaLogic = 
-        <div class="fb-video" data-href={this.state.link} data-height= "400" data-width="350" data-show-text="false">
-        </div>;
+        mediaContent = 
+        <video src={this.state.source} height="484" width="860" controls>
+</video>
       } else if (this.state.type == 'photo') {
-          mediaLogic = 
-            <div class="fb-post" data-href={this.state.link} data-height="400" data-width = "300" data-show-text="false">
-            </div>
+          mediaContent = 
+          <img src = {this.state.picture}/>
       }
     return (
         <div>
-            {/* {mediaLogic} */}
+            {mediaContent}
             {/* https://developers.facebook.com/docs/graph-api/reference/video */}
-            <img src = "https://scontent.xx.fbcdn.net/v/t15.0-10/s720x720/24554368_10154924218011879_7690847458473017344_n.jpg?oh=6fd04d90bbe02469deed7670cc98cc97&oe=5AF4B8E2"/>
-            <video src="https://video.xx.fbcdn.net/v/t43.1792-2/26143855_325982481222123_7932111293501145088_n.mp4?efg=eyJybHIiOjIzODIsInJsYSI6MTAyNCwidmVuY29kZV90YWciOiJzdmVfaGQifQ%3D%3D&rl=2382&vabr=1588&oh=a9041a24e37860269e8e69693c52a5db&oe=5A58A7CA" height="484" width="860" controls>
-</video>
+            
         </div>
     ); 
   }
