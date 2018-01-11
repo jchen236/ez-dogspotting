@@ -57,7 +57,7 @@ class App extends Component {
 
     let paging = '';
     const node = format("/{}/feed", groupID);
-    const params = format("/?limit={}&access_token={}", 30, accessToken);
+    const params = format("/?limit={}&access_token={}", 3, accessToken);
     let since = since_date !== '' ? format("&since={}",since_date) : '';
     let until = until_date !== '' ? format("&until={}", until_date) : '';
 

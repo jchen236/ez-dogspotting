@@ -32,8 +32,11 @@ class PostItem extends Component {
       }
     return (
         <div>
-            {mediaLogic}
+            {/* {mediaLogic} */}
+            {/* https://developers.facebook.com/docs/graph-api/reference/video */}
             <img src = "https://scontent.xx.fbcdn.net/v/t15.0-10/s720x720/24554368_10154924218011879_7690847458473017344_n.jpg?oh=6fd04d90bbe02469deed7670cc98cc97&oe=5AF4B8E2"/>
+            <video src="https://video.xx.fbcdn.net/v/t43.1792-2/26143855_325982481222123_7932111293501145088_n.mp4?efg=eyJybHIiOjIzODIsInJsYSI6MTAyNCwidmVuY29kZV90YWciOiJzdmVfaGQifQ%3D%3D&rl=2382&vabr=1588&oh=a9041a24e37860269e8e69693c52a5db&oe=5A58A7CA" height="484" width="860" controls>
+</video>
         </div>
     ); 
   }
