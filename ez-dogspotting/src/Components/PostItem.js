@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import '../Assets/css/default.min.css';
 class PostItem extends Component {
 
     constructor(props) {
@@ -35,7 +35,7 @@ class PostItem extends Component {
           <img src = {this.state.picture}/>
       }
     return (
-        <div>
+        <div className = "postitem">
             {mediaContent}
             {/* https://developers.facebook.com/docs/graph-api/reference/video */}
             
