@@ -5,8 +5,17 @@ import PropTypes from 'prop-types';
 class MediaPresenter extends Component {
 
   render() {
+    let sources;
+    if(this.props.sources) {
+        sources = this.props.sources.map(source => {
+            //console.log(project);
+            return (
+                <div> <img src = {source}/> </div>
+            );
+        });
+    }
     return (
-    
+        <
     ); 
   }
 }
