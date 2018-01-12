@@ -16,13 +16,9 @@ class Media extends Component {
 
     componentDidMount() {
         let ids = this.extractTargetIDFromAttachments();
-        let sources = ids.map(id => {
-            let foo = this.get_source_from_id(id);
-            console.log(foo)
-            console.log("foo")
-            return foo;
+        ids.map(id => {
+            this.get_source_from_id(id);
         } );
-        this.setState({ sources:sources });
     }
 
     extractTargetIDFromAttachments = () => {
@@ -52,8 +48,10 @@ class Media extends Component {
         axios.get(url)
             .then((response) => {
                 console.log("done")
-                console.log(response.data);
-                return response.data.source;
+                console.log(response.data.source);
+                this.setState({
+                    sources: this.state.sources.concat([response.data.source])
+                });
             })
             .catch((error) => {
                 console.log(error);
