@@ -24,18 +24,19 @@ class PostItem extends Component {
 
     
   render() {
-      let mediaContent;
-      if (this.state.type == 'video') {
-        mediaContent = 
-        <video src={this.state.source} controls>
-</video>
-      } else if (this.state.type == 'photo') {
-          mediaContent = 
-          <img src = {this.state.full_picture}/>
-      }
+//       let mediaContent;
+//       if (this.state.type == 'video') {
+//         mediaContent = 
+//         <video src={this.state.source} controls>
+// </video>
+//       } else if (this.state.type == 'photo') {
+//           mediaContent = 
+//           <img src = {this.state.full_picture}/>
+//       }
     return (
         <div className = "content_holder">
-            {mediaContent}
+            <Media attachmentData = {this.state.attachments} />
+            {/* {mediaContent} */}
             {/* https://developers.facebook.com/docs/graph-api/reference/video */}
             {/* 10156286978084467/?fields=source,message,created_time,updated_time,id,object_id,parent_id,link,child_attachments,type,actions,properties,attachments&limit=10 */}
             {/* attachments->data->subattachments->data->target->id to get each id in the album 

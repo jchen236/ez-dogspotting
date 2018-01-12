@@ -10,16 +10,15 @@ class Media extends Component {
             attachments: props.attachmentData.data[0],
             content_ids: []
         };
-        extractTargetIDFromAttachments();
+        this.extractTargetIDFromAttachments();
       }
 
     extractTargetIDFromAttachments = () => {
         let id_list = [];
-        if(this.state.subattachments) {
+        if(this.state.attachments.subattachments) {
             console.log("This is a multi-part post");
-            let subattachments = this.state.subattachments.data;
             this.setState({
-                content_ids: subattachments.map(subattachment => {
+                content_ids: this.state.attachments.subattachments.data.map(subattachment => {
                     subattachment.target.id;
                 })
             });
@@ -34,7 +33,7 @@ class Media extends Component {
   render() {
     return (
       <div className="Media">
-        MediaComponent
+        {this.state.content_ids}
       </div>
     ); 
   }
