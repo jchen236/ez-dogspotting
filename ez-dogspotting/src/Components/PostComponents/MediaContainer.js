@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { GROUP_ID, ACCESS_TOKEN } from '../../settings';
 import axios from 'axios';
+import MediaPresenter from './MediaPresenter';
 var format = require('string-format');
 
 class Media extends Component {
@@ -68,7 +69,7 @@ class Media extends Component {
     return (
       <div className="Media">
       <h1 style ={divStyle} >
-        {this.state.sources}
+       <MediaPresenter sources = {this.state.sources} />
         </h1>
       </div>
     ); 
