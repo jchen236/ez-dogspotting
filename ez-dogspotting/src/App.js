@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
-import Posts from './Components/Posts'
+import Posts from './Components/PostComponents/Posts'
 import './App.css';
 import * as settings from './settings'
 import { GROUP_ID, ACCESS_TOKEN } from './settings';

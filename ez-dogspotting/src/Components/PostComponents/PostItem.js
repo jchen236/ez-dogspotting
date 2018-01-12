@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import '../Assets/css/default.min.css';
+import '../../Assets/css/default.min.css';
 class PostItem extends Component {
 
     constructor(props) {
