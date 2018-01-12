@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Media from './Media';
+import MediaContainer from './MediaContainer';
 import '../../Assets/css/default.min.css';
 class PostItem extends Component {
 
@@ -35,7 +35,7 @@ class PostItem extends Component {
 //       }
     return (
         <div className = "content_holder">
-            <Media attachmentData = {this.state.attachments} />
+            <MediaContainer attachmentData = {this.state.attachments} />
             {/* {mediaContent} */}
             {/* https://developers.facebook.com/docs/graph-api/reference/video */}
             {/* 10156286978084467/?fields=source,message,created_time,updated_time,id,object_id,parent_id,link,child_attachments,type,actions,properties,attachments&limit=10 */}
