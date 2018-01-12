@@ -7,9 +7,10 @@ class Media extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            attachments: props.data[0],
+            attachments: props.attachmentData.data[0],
             content_ids: []
         };
+        extractTargetIDFromAttachments();
       }
 
     extractTargetIDFromAttachments = () => {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Media from './Media';
 import '../../Assets/css/default.min.css';
 class PostItem extends Component {
 
@@ -15,14 +16,12 @@ class PostItem extends Component {
             reactions: props.postData.reactions,
             shares: props.postData.shares,
             source: props.postData.source,
-            updated_time: props.postData.updated_time      
+            updated_time: props.postData.updated_time,
+            attachments: props.postData.attachments   
         };
         // Needs more?
       }
 
-    getIDFromVideoLink = (link) => {
-        
-    }
     
   render() {
       let mediaContent;
