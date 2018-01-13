@@ -15,8 +15,9 @@ class MediaPresenter extends Component {
         });
     }
     return (
-        <
-    ); 
+        <div> </div>
+    );
+
   }
 }
 

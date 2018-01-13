@@ -38,6 +38,23 @@ class Media extends Component {
             }
         }
     }
+    
+    extractMediaTypeFromAttachments = () => {
+        if(this.props.attachmentData) {
+            let attachmentData = this.props.attachmentData.data[0];
+            if(attachmentData.subattachments) {
+                console.log("This is a multi-part post");
+                let media_types = attachmentData.subattachments.data.map(subattachment => {
+                    return subattachment.type;
+                });
+                // console.log(media_types)
+                return media_types;
+            } else {
+                console.log("this is a single-part post");
+                return [this.props.type]
+            }
+        }
+    }
 
     get_source_from_id = (id) => {
         const base_url = 'https://graph.facebook.com/v2.11';
@@ -66,10 +83,14 @@ class Media extends Component {
         backgroundColor: 'red'
       };
       console.log(this.state.sources);
+      let types = this.extractMediaTypeFromAttachments();
+      console.log(types)
     return (
       <div className="Media">
       <h1 style ={divStyle} >
-       <MediaPresenter sources = {this.state.sources} />
+       {/* <MediaPresenter sources = {this.state.sources} /> */}
+       {types}
+       {this.state.sources}
         </h1>
       </div>
     ); 

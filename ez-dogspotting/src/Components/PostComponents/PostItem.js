@@ -6,6 +6,7 @@ class PostItem extends Component {
 
     constructor(props) {
         super(props);
+        console.log(props);
         this.state = {
             id: props.postData.id,
             link: props.postData.link,
@@ -35,7 +36,7 @@ class PostItem extends Component {
 //       }
     return (
         <div className = "content_holder">
-            <MediaContainer attachmentData = {this.state.attachments} />
+            <MediaContainer attachmentData = {this.state.attachments} type = {this.state.type} />
             {/* {mediaContent} */}
             {/* https://developers.facebook.com/docs/graph-api/reference/video */}
             {/* 10156286978084467/?fields=source,message,created_time,updated_time,id,object_id,parent_id,link,child_attachments,type,actions,properties,attachments&limit=10 */}
