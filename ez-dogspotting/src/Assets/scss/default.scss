@@ -52,20 +52,38 @@ header {
     display: block;
     border-color: #f00;
     border-width: 3px;
-    line-height: 600px;
-
-    video, img {
-        margin-left: auto;
-        margin-right: auto;
-        vertical-align: middle;
-
-        max-width: 90%;
-        max-height: 90%;
-        height: auto;
-        width: auto;
-    }
-    video {
-        height: 540px;
-    }
+    text-align: center;
 }
+
+.media_container {
+    background-color: yellow;
+    display: inline-block;
+    height: 90%;
+    width: 90%;
+    position: relative;
+}
+
+.slider_img {
+    max-width: 90%;
+    max-height: 90%;
+    height: auto;
+    width: auto;
+}
+
+.slider_vid {
+    max-width: 90%;
+    max-height: 90%;
+    height: auto;
+    width: auto;
+    height: 540px;
+}
+
+.slider_container {
+    height: inherit;
+    width: inherit;
+    background-color: green;
+    position: relative;
+}
+
+
 

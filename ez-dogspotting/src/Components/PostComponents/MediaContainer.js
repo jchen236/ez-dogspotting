@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { GROUP_ID, ACCESS_TOKEN } from '../../settings';
 import axios from 'axios';
 import MediaPresenter from './MediaPresenter';
+import '../../Assets/css/default.min.css';
 var format = require('string-format');
 
 class Media extends Component {
@@ -78,18 +79,10 @@ class Media extends Component {
     }
 
   render() {
-    var divStyle = {
-        color: 'white',
-        backgroundColor: 'red'
-      };
-      console.log(this.state.sources);
       let types = this.extractMediaTypeFromAttachments();
-      console.log(types)
     return (
-      <div className="Media">
-      <h1 style ={divStyle} >
+      <div className = 'media_container'>
        <MediaPresenter sources = {this.state.sources} types = {types} />
-        </h1>
       </div>
     ); 
   }
