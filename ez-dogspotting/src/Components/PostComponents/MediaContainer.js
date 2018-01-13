@@ -88,9 +88,7 @@ class Media extends Component {
     return (
       <div className="Media">
       <h1 style ={divStyle} >
-       {/* <MediaPresenter sources = {this.state.sources} /> */}
-       {types}
-       {this.state.sources}
+       <MediaPresenter sources = {this.state.sources} types = {types} />
         </h1>
       </div>
     ); 

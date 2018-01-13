@@ -5,17 +5,22 @@ import PropTypes from 'prop-types';
 class MediaPresenter extends Component {
 
   render() {
-    let sources;
-    if(this.props.sources) {
-        sources = this.props.sources.map(source => {
-            //console.log(project);
-            return (
-                <div> <img src = {source}/> </div>
-            );
-        });
+    let content = [];
+    if(this.props.sources && this.props.types) {
+        for(var i = 0; i < this.props.sources.length; i++) {
+            console.log(this.props.sources[i]);
+            console.log(this.props.types[i]);
+            if(this.props.types[i] == 'photo') {
+                content.push(<img src = {this.props.sources[i]} />);
+            } else {
+                content.push(<video src = {this.props.sources[i]} controls />);
+            }
+        }
     }
     return (
-        <div> </div>
+        <div>
+            {content}
+        </div>
     );
 
   }
