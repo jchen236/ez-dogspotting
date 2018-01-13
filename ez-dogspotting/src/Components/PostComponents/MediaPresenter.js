@@ -10,12 +10,8 @@ class MediaPresenter extends Component {
 
   render() {
     var settings = {
-        className: 'center',
-      centerMode: true,
-      infinite: true,
-      centerPadding: '60px',
-      slidesToShow: 1,
-      speed: 500
+    
+      dots: true
     };
 
     let content = [];

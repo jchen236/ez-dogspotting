@@ -36,14 +36,18 @@ class PostItem extends Component {
 //       }
     return (
         <div className = "content_holder">
-            <MediaContainer attachmentData = {this.state.attachments} type = {this.state.type} />
-            {/* {mediaContent} */}
-            {/* https://developers.facebook.com/docs/graph-api/reference/video */}
-            {/* 10156286978084467/?fields=source,message,created_time,updated_time,id,object_id,parent_id,link,child_attachments,type,actions,properties,attachments&limit=10 */}
-            {/* attachments->data->subattachments->data->target->id to get each id in the album 
-            once we the get ID, we can get the comments and likes.
-            attachments->data->subattachments->data->media->image->src to get the media 
-            attachments->data->subattachments->data->type to get the type (photo or video) */}
+            <div className = "content_holder_middle">
+                <div className = "content_holder_inner">
+                    <MediaContainer attachmentData = {this.state.attachments} type = {this.state.type} />
+                    {/* {mediaContent} */}
+                    {/* https://developers.facebook.com/docs/graph-api/reference/video */}
+                    {/* 10156286978084467/?fields=source,message,created_time,updated_time,id,object_id,parent_id,link,child_attachments,type,actions,properties,attachments&limit=10 */}
+                    {/* attachments->data->subattachments->data->target->id to get each id in the album 
+                    once we the get ID, we can get the comments and likes.
+                    attachments->data->subattachments->data->media->image->src to get the media 
+                    attachments->data->subattachments->data->type to get the type (photo or video) */}
+                </div>
+            </div>
         </div>
     ); 
   }
