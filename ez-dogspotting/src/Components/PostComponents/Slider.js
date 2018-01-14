@@ -3,37 +3,38 @@ import PropTypes from 'prop-types';
 
 class Slider extends Component {
 
-
     constructor(props) {
         super(props);
-        console.log(props);
+        console.log(this.props);
         this.state = {
             currentSourceIndex: 0,
             numSources: props.sources.length,
             content: []
         };
-        this.generateContent();
         // Needs more?
     }
 
-    componentWillMount() {
-        this.generateContent();
+
+    componentWillReceiveProps(nextProps) {
+        console.log("henlo");
+        console.log(nextProps);
+        this.generateContent(nextProps);
     }
 
-    generateContent = () => {
+    generateContent = (nextProps) => {
         let content = [];
         //console.log("niaa");
-        console.log(this.props);
-        if(this.props.types && this.props.sources) {
+        //console.log(this.props);
+        if(nextProps.types && nextProps.sources) {
             console.log("in generate content");
-            for(var i = 0; i < this.props.sources.length; i++) {       
+            for(var i = 0; i < nextProps.sources.length; i++) {       
                 console.log("receiveddddd");
-                console.log(this.props.sources[i]);
-                console.log(this.props.types[i]);
-                if(this.props.types[i] == 'photo') {
-                    content.push(<div> <img className = 'slider_img' src = {this.props.sources[i]} /> </div>);
+                console.log(nextProps.sources[i]);
+                console.log(nextProps.types[i]);
+                if(nextProps.types[i] == 'photo') {
+                    content.push(<div> <img className = 'slider_img' src = {nextProps.sources[i]} /> </div>);
                 } else {
-                    content.push(<div> <video className = 'slider_vid' src = {this.props.sources[i]} controls /> </div>);
+                    content.push(<div> <video className = 'slider_vid' src = {nextProps.sources[i]} controls /> </div>);
                 }
             }
         }
@@ -57,7 +58,7 @@ class Slider extends Component {
     }
 
   render() {
-      console.log(this.props.sources);
+      //console.log(this.props);
     return (
       <div className="slider">
         <button id = "next" onClick = {this.toggleNext}> Next </button>
