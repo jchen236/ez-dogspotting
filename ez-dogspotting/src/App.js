@@ -36,7 +36,6 @@ class App extends Component {
   requestDataFromUrl = (url) => {
     axios.get(url)
       .then((response) => {
-        console.log(response.data.data);
         this.setState( {
           data: response.data.data
       }) 
@@ -68,7 +67,6 @@ class App extends Component {
     let baseUrl = base + node + params + since + until + paging;
 
     let url = this.constructFBPageFieldUrl(baseUrl);
-    console.log(url)
     this.requestDataFromUrl(url)
 
   }

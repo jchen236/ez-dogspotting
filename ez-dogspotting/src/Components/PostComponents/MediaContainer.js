@@ -2,39 +2,32 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { GROUP_ID, ACCESS_TOKEN } from '../../settings';
 import axios from 'axios';
-import MediaPresenter from './MediaPresenter';
 import '../../Assets/css/default.min.css';
+import Slider from './Slider';
 var format = require('string-format');
 
 class Media extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
           sources: []
         };
-        // Needs more?
-      }
-
-    componentDidMount() {
         let ids = this.extractTargetIDFromAttachments();
         ids.map(id => {
             this.get_source_from_id(id);
-        } );
-    }
+        });
+      }
 
     extractTargetIDFromAttachments = () => {
         if(this.props.attachmentData) {
             let attachmentData = this.props.attachmentData.data[0];
             if(attachmentData.subattachments) {
-                console.log("This is a multi-part post");
                 let content_ids = attachmentData.subattachments.data.map(subattachment => {
                     return subattachment.target.id;
                 });
-                // console.log(content_ids)
                 return content_ids;
             } else {
-                console.log("this is a single-part post");
                 return [attachmentData.target.id]
             }
         }
@@ -44,14 +37,11 @@ class Media extends Component {
         if(this.props.attachmentData) {
             let attachmentData = this.props.attachmentData.data[0];
             if(attachmentData.subattachments) {
-                console.log("This is a multi-part post");
                 let media_types = attachmentData.subattachments.data.map(subattachment => {
                     return subattachment.type;
                 });
-                // console.log(media_types)
                 return media_types;
             } else {
-                console.log("this is a single-part post");
                 return [this.props.type]
             }
         }
@@ -63,11 +53,8 @@ class Media extends Component {
         const params = format('/?limit={}&access_token={}', 10, ACCESS_TOKEN);
         const fields = '&fields=source';
         const url = base_url + node + params + fields;
-        console.log(url)
         axios.get(url)
             .then((response) => {
-                console.log("done")
-                console.log(response.data.source);
                 this.setState({
                     sources: this.state.sources.concat([response.data.source])
                 });
@@ -80,9 +67,11 @@ class Media extends Component {
 
   render() {
       let types = this.extractMediaTypeFromAttachments();
+      //console.log(types);
+      //console.log(this.state.sources);
     return (
       <div className = 'media_container'>
-       <MediaPresenter sources = {this.state.sources} types = {types} />
+       <Slider sources = {this.state.sources} types = {types} />
       </div>
     ); 
   }

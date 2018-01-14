@@ -6,7 +6,6 @@ class PostItem extends Component {
 
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {
             id: props.postData.id,
             link: props.postData.link,

@@ -6,33 +6,24 @@ class Slider extends Component {
 
     constructor(props) {
         super(props);
+        console.log(props);
         this.state = {
             currentSourceIndex: 0,
             numSources: props.sources.length,
-            content: {generateContent()}
+            content: []
         };
+        this.generateContent();
         // Needs more?
-    }
-
-
-    toggleNext = () => {
-        this.setState({
-            currentSourceIndex: (currentSourceIndex + 1) % this.state.numSources
-        });
-    }
-
-    togglePrev = () => {
-        this.setState({
-            currentSourceIndex: (currentSourceIndex - 1) % this.state.numSources
-        });
     }
 
     generateContent = () => {
         let content = [];
+        //console.log("niaa");
         if(this.props.types && this.props.sources) {
             for(var i = 0; i < this.props.sources.length; i++) {
-                console.log(this.props.sources[i]);
-                console.log(this.props.types[i]);
+                // console.log("receiveddddd");
+                // console.log(this.props.sources[i]);
+                // console.log(this.props.types[i]);
                 if(this.props.types[i] == 'photo') {
                     content.push(<div> <img className = 'slider_img' src = {this.props.sources[i]} /> </div>);
                 } else {
@@ -40,16 +31,31 @@ class Slider extends Component {
                 }
             }
         }
-        return content;
+        // console.log("wtf");
+        // console.log(content);
+        this.setState({
+            content: content
+        });
+    }
+
+    toggleNext = () => {
+        this.setState({
+            currentSourceIndex: (this.state.currentSourceIndex + 1) % this.state.numSources
+        });
+    }
+
+    togglePrev = () => {
+        this.setState({
+            currentSourceIndex: (this.state.currentSourceIndex - 1) % this.state.numSources
+        });
     }
 
   render() {
-    let content = this.generateContent();
     return (
-      <div className="Slider">
+      <div className="slider">
         <button id = "next" onClick = {this.toggleNext}> Next </button>
         <button id = "prev" onClick = {this.toggleNext}> Previous </button>
-
+        {this.state.content[this.state.currentSourceIndex]}
       </div>
     ); 
   }

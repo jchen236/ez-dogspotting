@@ -10,7 +10,8 @@ class MediaPresenter extends Component {
 
   render() {
     var settings = {
-    
+        autoplay: true,
+        centerPadding: '80px',
       dots: true
     };
 

@@ -8,7 +8,6 @@ class Posts extends Component {
   render() {
     let postItems;
     if(this.props.posts) {
-      console.log("props received from app to Posts");
       postItems = this.props.posts.map(post => {
 
         return (
