@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../../Assets/css/default.min.css';
 
 class Slider extends Component {
 
     constructor(props) {
         super(props);
-        console.log(this.props);
+        //console.log(this.props);
         this.state = {
             currentSourceIndex: 0,
-            numSources: props.sources.length,
+            numSources: 0,
             content: []
         };
         // Needs more?
@@ -16,8 +17,8 @@ class Slider extends Component {
 
 
     componentWillReceiveProps(nextProps) {
-        console.log("henlo");
-        console.log(nextProps);
+        // console.log("henlo");
+        // console.log(nextProps);
         this.generateContent(nextProps);
     }
 
@@ -26,15 +27,15 @@ class Slider extends Component {
         //console.log("niaa");
         //console.log(this.props);
         if(nextProps.types && nextProps.sources) {
-            console.log("in generate content");
+            // console.log("in generate content");
             for(var i = 0; i < nextProps.sources.length; i++) {       
-                console.log("receiveddddd");
-                console.log(nextProps.sources[i]);
-                console.log(nextProps.types[i]);
+                // console.log("receiveddddd");
+                // console.log(nextProps.sources[i]);
+                // console.log(nextProps.types[i]);
                 if(nextProps.types[i] == 'photo') {
                     content.push(<div> <img className = 'slider_img' src = {nextProps.sources[i]} /> </div>);
                 } else {
-                    content.push(<div> <video className = 'slider_vid' src = {nextProps.sources[i]} controls /> </div>);
+                    content.push(<div> <video className = 'slider_vid' src = {nextProps.sources[i]} controls autoplay/> </div>);
                 }
             }
         }
@@ -43,26 +44,35 @@ class Slider extends Component {
         this.setState({
             content: content
         });
+        this.setState({
+            numSources: nextProps.sources.length
+        })
     }
 
     toggleNext = () => {
+        console.log("Toggle next");
         this.setState({
             currentSourceIndex: (this.state.currentSourceIndex + 1) % this.state.numSources
         });
+        console.log(this.props);
     }
 
     togglePrev = () => {
+        console.log("Toggle previous");
         this.setState({
-            currentSourceIndex: (this.state.currentSourceIndex - 1) % this.state.numSources
+            currentSourceIndex: Math.abs((this.state.currentSourceIndex - 1) % this.state.numSources)
         });
+        console.log(this.props);
     }
 
   render() {
-      //console.log(this.props);
+      console.log(this.state.content);
+      console.log(this.state.currentSourceIndex);
+      console.log(this.state.numSources);
     return (
       <div className="slider">
         <button id = "next" onClick = {this.toggleNext}> Next </button>
-        <button id = "prev" onClick = {this.toggleNext}> Previous </button>
+        <button id = "prev" onClick = {this.togglePrev}> Previous </button>
         {this.state.content[this.state.currentSourceIndex]}
       </div>
     ); 
