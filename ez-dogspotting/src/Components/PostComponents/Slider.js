@@ -3,10 +3,26 @@ import PropTypes from 'prop-types';
 
 class Slider extends Component {
 
-  render() {
+    
 
+    toggleNext = () => {
+
+    }
+
+    togglePrev = () => {
+
+    }
+
+    generateContent = () => {
+
+    }
+
+  render() {
+    let content = this.generateContent();
     return (
       <div className="Slider">
+        <button id = "next" onClick = {this.toggleNext}> Next </button>
+        <button id = "prev" onClick = {this.toggleNext}> Previous </button>
 
       </div>
     ); 
