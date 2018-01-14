@@ -68,7 +68,7 @@ class Media extends Component {
   render() {
       let types = this.extractMediaTypeFromAttachments();
       //console.log(types);
-      //console.log(this.state.sources);
+     // console.log(this.state.sources);
     return (
       <div className = 'media_container'>
        <Slider sources = {this.state.sources} types = {types} />

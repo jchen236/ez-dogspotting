@@ -16,14 +16,20 @@ class Slider extends Component {
         // Needs more?
     }
 
+    componentWillMount() {
+        this.generateContent();
+    }
+
     generateContent = () => {
         let content = [];
         //console.log("niaa");
+        console.log(this.props);
         if(this.props.types && this.props.sources) {
-            for(var i = 0; i < this.props.sources.length; i++) {
-                // console.log("receiveddddd");
-                // console.log(this.props.sources[i]);
-                // console.log(this.props.types[i]);
+            console.log("in generate content");
+            for(var i = 0; i < this.props.sources.length; i++) {       
+                console.log("receiveddddd");
+                console.log(this.props.sources[i]);
+                console.log(this.props.types[i]);
                 if(this.props.types[i] == 'photo') {
                     content.push(<div> <img className = 'slider_img' src = {this.props.sources[i]} /> </div>);
                 } else {
@@ -51,6 +57,7 @@ class Slider extends Component {
     }
 
   render() {
+      console.log(this.props.sources);
     return (
       <div className="slider">
         <button id = "next" onClick = {this.toggleNext}> Next </button>
