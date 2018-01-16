@@ -15,7 +15,6 @@ class Slider extends Component {
         // Needs more?
     }
 
-
     componentWillReceiveProps(nextProps) {
         // console.log("henlo");
         // console.log(nextProps);
@@ -71,13 +70,12 @@ class Slider extends Component {
       console.log(this.state.numSources);
     return (
       <div className="slider">
-        <button id = "next" onClick = {this.toggleNext}> Next </button>
-        <button id = "prev" onClick = {this.togglePrev}> Previous </button>
+        {this.state.numSources > 1 && <button id = "next" onClick = {this.toggleNext}> Next </button>}
+        {this.state.numSources > 1 && <button id = "prev" onClick = {this.togglePrev}> Previous </button> }
         {this.state.content[this.state.currentSourceIndex]}
       </div>
     ); 
   }
 }
-
 
 export default Slider;
