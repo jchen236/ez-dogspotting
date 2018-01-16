@@ -33,7 +33,8 @@ class Slider extends Component {
                 // console.log(nextProps.types[i]);
                 if(nextProps.types[i] == 'photo') {
                     content.push(<div> <img className = 'slider_img' src = {nextProps.sources[i]} /> </div>);
-                } else {
+                }
+                if(nextProps.types[i] == 'video') {
                     content.push(<div> <video className = 'slider_vid' src = {nextProps.sources[i]} controls autoplay/> </div>);
                 }
             }

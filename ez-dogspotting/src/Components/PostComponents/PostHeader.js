@@ -16,6 +16,8 @@ class PostHeader extends Component {
  
     return (
       <div className = 'post_header'>
+      <h2> {this.props.user} </h2>
+      <h2> {this.props.created_time} </h2>
       </div>
     ); 
   }

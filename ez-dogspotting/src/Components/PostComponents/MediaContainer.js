@@ -14,9 +14,12 @@ class Media extends Component {
           sources: []
         };
         let ids = this.extractTargetIDFromAttachments();
-        ids.map(id => {
-            this.get_source_from_id(id);
-        });
+        if(ids) {
+            ids.map(id => {
+                this.get_source_from_id(id);
+            });
+        }
+       
       }
 
     extractTargetIDFromAttachments = () => {
@@ -30,6 +33,9 @@ class Media extends Component {
             } else {
                 return [attachmentData.target.id]
             }
+        } else {
+            console.log("NO PROPS TO MEDIA CONTAINER!!");
+            console.log(this.props);
         }
     }
     
@@ -62,12 +68,12 @@ class Media extends Component {
             .catch((error) => {
                 console.log(error);
             });
-        console.log("Media componentDidMount finished calling");
+        //console.log("Media componentDidMount finished calling");
     }
 
   render() {
       let types = this.extractMediaTypeFromAttachments();
-      //console.log(types);
+      console.log(types);
      // console.log(this.state.sources);
     return (
       <div className = 'media_container'>
