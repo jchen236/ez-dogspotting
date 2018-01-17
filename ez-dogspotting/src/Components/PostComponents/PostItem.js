@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MediaContainer from './MediaContainer';
+import PostMessage from './PostMessage';
 import '../../Assets/css/default.min.css';
 class PostItem extends Component {
 
@@ -37,6 +38,7 @@ class PostItem extends Component {
         <div className = "content_holder">
             <div className = "content_holder_middle">
                 <div className = "content_holder_inner">
+                    <PostMessage message = {this.state.message} />
                     <MediaContainer attachmentData = {this.state.attachments} type = {this.state.type} />
                     {/* {mediaContent} */}
                     {/* https://developers.facebook.com/docs/graph-api/reference/video */}
