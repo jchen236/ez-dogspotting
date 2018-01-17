@@ -14,7 +14,7 @@ class PostMessage extends Component {
     }
     return (
       <div className = 'post_message'>
-        {message}
+        <h3>{message}</h3>
       </div>
     ); 
   }
