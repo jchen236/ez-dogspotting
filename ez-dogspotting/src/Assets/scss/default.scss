@@ -54,6 +54,7 @@ header {
     border-width: 3px;
     text-align: center;
     position: relative;
+    padding: 15px;
 }
 
 .media_container {
@@ -95,16 +96,13 @@ header {
 }
 
 .post_message {
-    // position: absolute;
-    // text-align: center;
-    // width: 100%;
-    // color: white;
-    // font-size: 12pt;
-    // margin: 10px auto 10px auto;
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: center; 
     justify-content: center;
+    background-color: #32fefe;
+    margin-bottom: 15px;
 }
 
 
