@@ -73,6 +73,7 @@ class Slider extends Component {
       <div className="slider">
         {this.state.numSources > 1 && <button id = "next" onClick = {this.toggleNext}> Next </button>}
         {this.state.numSources > 1 && <button id = "prev" onClick = {this.togglePrev}> Previous </button> }
+        <br/><br/>
         {this.state.content[this.state.currentSourceIndex]}
       </div>
     ); 

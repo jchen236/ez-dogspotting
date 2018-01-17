@@ -55,6 +55,8 @@ header {
     text-align: center;
     position: relative;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 .media_container {
@@ -67,33 +69,39 @@ header {
     // width: 70%;
     // margin: 0px auto 0px auto;
     // text-align: center;
-    flex: 1 1 auto;
-    display: block;
+    display: flex;
+    flex-direction: column;
 
 }
 
 .slider_img {
-    max-width: 70%;
-    max-height: 70%;
-    height: auto;
-    width: auto;
+    position: absolute;
+    flex-grow: 1;
+    max-height: 100%;
 }
 
 .slider_vid {
-    max-width: 50%;
-    max-height: 50%;
-    width: auto;
-    height: 340px;
+    position: absolute;
+    flex-grow: 1;
+    max-height: 100%;
 }
 
 .slider {
-    height:90%;
-    width: 90%;
+    // height:90%;
+    // width: 90%;
     // position: absolute;
     // top: 50%; left: 50%;
     // transform: translate(-50%,-50%);
     background: red;
     margin: 0 auto;
+    display: flex;
+    position: relative;
+    height: 400px;
+    width: 90%;
+    flex-direction: column;
+    button {
+        max-width: 100%;
+    }
 }
 
 .post_message {
