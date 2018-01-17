@@ -36,8 +36,6 @@ class PostItem extends Component {
 //       }
     return (
         <div className = "content_holder">
-            <div className = "content_holder_middle">
-                <div className = "content_holder_inner">
                     <PostMessage message = {this.state.message} />
                     <MediaContainer attachmentData = {this.state.attachments} type = {this.state.type} />
                     {/* {mediaContent} */}
@@ -48,8 +46,6 @@ class PostItem extends Component {
                     attachments->data->subattachments->data->media->image->src to get the media 
                     attachments->data->subattachments->data->type to get the type (photo or video) */}
                 </div>
-            </div>
-        </div>
     ); 
   }
 }
