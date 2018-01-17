@@ -66,9 +66,9 @@ class Slider extends Component {
     }
 
   render() {
-      console.log(this.state.content);
-      console.log(this.state.currentSourceIndex);
-      console.log(this.state.numSources);
+    //   console.log(this.state.content);
+    //   console.log(this.state.currentSourceIndex);
+    //   console.log(this.state.numSources);
     return (
       <div className="slider">
         {this.state.numSources > 1 && <button id = "next" onClick = {this.toggleNext}> Next </button>}

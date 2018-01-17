@@ -16,6 +16,7 @@ class Media extends Component {
         let ids = this.extractTargetIDFromAttachments();
         if(ids) {
             ids.map(id => {
+                console.log(id);
                 this.get_source_from_id(id);
             });
         }
@@ -73,7 +74,7 @@ class Media extends Component {
 
   render() {
       let types = this.extractMediaTypeFromAttachments();
-      console.log(types);
+      // console.log(types);
      // console.log(this.state.sources);
     return (
       <div className = 'media_container'>

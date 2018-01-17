@@ -4,18 +4,17 @@ import '../../Assets/css/default.min.css';
 var format = require('string-format');
 
 class PostMessage extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-      }
-
    
   render() {
- 
+      let message;
+    if(this.props.message) {
+        message = this.props.message;
+    } else {
+        message = "No message!";
+    }
     return (
       <div className = 'post_message'>
+        {message}
       </div>
     ); 
   }
