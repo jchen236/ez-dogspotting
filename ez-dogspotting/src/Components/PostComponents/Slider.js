@@ -60,7 +60,7 @@ class Slider extends Component {
     togglePrev = () => {
         console.log("Toggle previous");
         this.setState({
-            currentSourceIndex: Math.abs((this.state.currentSourceIndex - 1) % this.state.numSources)
+            currentSourceIndex: Math.abs((this.state.currentSourceIndex - 1 + this.state.numSources) % this.state.numSources)
         });
         console.log(this.props);
     }
@@ -71,8 +71,10 @@ class Slider extends Component {
     //   console.log(this.state.numSources);
     return (
       <div className="slider">
+      <div className = "slider_buttons">
         {this.state.numSources > 1 && <button id = "next" onClick = {this.toggleNext}> Next </button>}
         {this.state.numSources > 1 && <button id = "prev" onClick = {this.togglePrev}> Previous </button> }
+     </div>
         <br/><br/>
         {this.state.content[this.state.currentSourceIndex]}
       </div>

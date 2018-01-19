@@ -70,6 +70,7 @@ header {
     // margin: 0px auto 0px auto;
     // text-align: center;
     flex: 1;
+    position: relative;
 
 }
 
@@ -88,15 +89,14 @@ header {
 .slider {
     // height:90%;
     // width: 90%;
-    // position: absolute;
-    // top: 50%; left: 50%;
-    // transform: translate(-50%,-50%);
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
     background: red;
     margin: 0 auto;
-    display: flex;
-    position: relative;
-    height: 400px;
+    height: 90%;
     width: 90%;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -104,6 +104,7 @@ header {
         height: 20px;
         width: 60px;
         text-align: center;
+        background-color: green;
     }
 }
 
@@ -113,6 +114,10 @@ header {
     justify-content: center;
     background-color: #32fefe;
     margin-bottom: 15px;
+}
+
+.slider_buttons {
+    background-color: grey;
 }
 
 
